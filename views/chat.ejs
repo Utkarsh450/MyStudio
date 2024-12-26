@@ -7,13 +7,13 @@
   <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
-/>
+  />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
   <!-- Header -->
   <header class="flex justify-between items-center px-6 py-4 bg-gray-800">
-    <div class="text-lg font-bold text-orange-500">VideoChat App</div>
+    <div class="text-lg font-bold text-orange-500">MR Studio</div>
     <button id="hangup" class="px-4 py-2 bg-red-600 rounded-md hover:bg-red-700">
       End Call
     </button>
@@ -22,33 +22,30 @@
   <!-- Main Content -->
   <main class="flex-grow grid grid-cols-12 gap-4 px-6 py-4">
     <!-- Video Section -->
-    <section class="VideoLook col-span-8 bg-gray-800 rounded-lg overflow-hidden relative shadow-lg">
+    <section id="videoSection" class="VideoLook col-span-8 bg-gray-800 rounded-lg p-16 relative shadow-lg transition-all duration-500 ease-in-out">
       <div class="h-full w-full flex items-center justify-center">
         <video id="local" class="hidden w-full h-full" autoplay muted></video> <!-- Local video element -->
         <video id="remoteVideo" class="absolute right-4 bottom-4 w-1/4 h-1/4 rounded-lg" autoplay></video> <!-- Remote video element -->
-        <p class="text-gray-500">Your Video</p>
-      </div>
-      <div class="absolute bottom-4 right-4 flex space-x-4">
-        <button class="bg-gray-700 p-3 rounded-full hover:bg-gray-600">
-          <!-- Add icon for mute/unmute video -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m6 6h2a2 2 0 002-2V6a2 2 0 00-2-2h-6a2 2 0 00-2 2v2m0 6h6" />
-          </svg>
-        </button>
-        <button class="bg-gray-700 p-3 rounded-full hover:bg-gray-600">
-          <!-- Add icon for mute/unmute audio -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12h3m-6 6V6m6 6h-6m3-9l3 3-3 3m-6 6H6m6-6H3m9 6l-3 3 3 3" />
-          </svg>
-        </button>
+        <p class="text-gray-500"></p>
+        <div class="buttons left-0 bottom-0 absolute px-48 py-1 flex items-enter justify-center gap-5">
+          <div class="w-14 h-14 rounded-full bg-zinc-500 px-4 py-3 hover:bg-gray-700">
+            <i class="ri-phone-fill text-2xl text-red-500"></i>
+          </div>
+          <div class="w-14 h-14 rounded-full bg-zinc-500 px-4 py-3 hover:bg-gray-700">
+          <i class="ri-video-on-fill text-2xl"></i>
+        </div>
+          <div class="w-14 h-14 rounded-full bg-zinc-500 px-4 py-3 hover:bg-gray-700">
+          <i class="ri-volume-down-fill   text-2xl"></i>    
+        </div>
+         </div>
       </div>
     </section>
 
     <!-- Chat Section -->
-    <section class="chat col-span-4 bg-gray-800 rounded-lg shadow-lg flex flex-col">
-      <div class="arrow translate-y-[13rem] -translate-x-[0.5rem] bg-orange-500 w-6 h-6 rounded-full text-center">
+    <section id="chatSection" class="chat col-span-4 bg-gray-800 rounded-lg shadow-lg flex flex-col">
+      <div class="arrow translate-y-[13rem] -translate-x-[0.5rem] bg-orange-500 w-6 h-6 rounded-full text-center cursor-pointer">
         <i class="ri-expand-left-right-fill"></i>
-            </div>
+      </div>
       <div class="flex-grow overflow-y-scroll p-4 space-y-4" id="message-container">
         <!-- Message (Incoming) -->
       </div>
@@ -232,15 +229,24 @@
         console.log("Failed to handle answer");
       }
     };
-    document.querySelector(".arrow").addEventListener("click",function(event){
-      document.querySelector(".chat").style.transform = "translateX(390px)";
-      document.querySelector(".VideoLook").style.display = "block";
 
-    })
+var count = 0;
+    document.querySelector(".arrow").addEventListener("click", function(event) {
+      if(count === 0){
+      document.querySelector(".chat").style.transform = "translateX(68vh)";
+      document.querySelector(".VideoLook").style.width = "calc(100% + 45vh)";
+       count = 1;
+      }
+     else{
+          document.querySelector(".chat").style.transform = "translateX(0vh)";
+          document.querySelector(".VideoLook").style.width = "calc(100%)";
+          count = 0;
+      }
 
-    document.querySelector("#hangup").addEventListener("click", function () {
-      hangup();
     });
+  
+    
+    
 
     function hangup() {
       if (peerConnection) {
@@ -248,7 +254,7 @@
         peerConnection = null;
         localStream.getTracks().forEach(track => track.stop());
 
-        document.querySelector(".videoblock").classList.add("hidden");
+        //document.querySelector(".videoblock").classList.add("hidden");
         socket.emit("signalingMessage", { room, message: JSON.stringify({ type: "hangup" }) });
         inCall = false;
       }
