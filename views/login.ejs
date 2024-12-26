@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Background Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Video Background -->
+  <div class="absolute inset-0 -z-10">
+    <video
+      autoplay
+      muted
+      loop
+      class="w-full h-full object-cover"
+    >
+      <source src="https://cdn.dribbble.com/userupload/13281679/file/original-b6a8fc1fb4ea04540564c6d6609010c8.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm"></div>
+  </div>
+
+  <!-- Login Form Container -->
+  <div class="w-full max-w-md bg-gray-800/90 rounded-lg shadow-lg p-6">
+    <!-- Tabs -->
+    <div class="flex justify-around mb-6">
+      <button id="loginTab" class="font-bold text-orange-500 border-b-2 border-orange-500 pb-2 focus:outline-none">
+        Login
+      </button>
+      <button id="registerTab" class="text-gray-400 pb-2 focus:outline-none">
+        Register
+      </button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="space-y-6" method="POST" action="/login">
+      <div>
+        <label for="email" class="block text-sm font-medium">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Enter your email"
+          class="w-full mt-1 px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+        >
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Enter your password"
+          class="w-full mt-1 px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+        >
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600"
+      >
+        Login
+      </button>
+    </form>
+
+    <!-- Registration Form -->
+    <form id="registerForm" class="hidden space-y-6" method="POST" action="/register">
+      <div>
+        <label for="username" class="block text-sm font-medium">Username</label>
+        <input
+          id="username"
+          name="name"
+          type="text"
+          placeholder="Choose a username"
+          class="w-full mt-1 px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+        >
+      </div>
+      <div>
+        <label for="emailReg" class="block text-sm font-medium">Email</label>
+        <input
+          id="emailReg"
+          name="email"
+          type="email"
+          placeholder="Enter your email"
+          class="w-full mt-1 px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+        >
+      </div>
+      <div>
+        <label for="passwordReg" class="block text-sm font-medium">Password</label>
+        <input
+          id="passwordReg"
+          name="password"
+          type="password"
+          placeholder="Create a password"
+          class="w-full mt-1 px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+        >
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+
+    loginTab.addEventListener("click", () => {
+      loginTab.classList.add("text-orange-500", "border-b-2", "border-orange-500");
+      registerTab.classList.remove("text-orange-500", "border-b-2", "border-orange-500");
+      registerTab.classList.add("text-gray-400");
+      loginForm.classList.remove("hidden");
+      registerForm.classList.add("hidden");
+    });
+
+    registerTab.addEventListener("click", () => {
+      registerTab.classList.add("text-orange-500", "border-b-2", "border-orange-500");
+      loginTab.classList.remove("text-orange-500", "border-b-2", "border-orange-500");
+      loginTab.classList.add("text-gray-400");
+      loginForm.classList.add("hidden");
+      registerForm.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
