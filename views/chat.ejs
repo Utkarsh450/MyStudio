@@ -22,21 +22,19 @@
   <!-- Main Content -->
   <main class="flex-grow grid grid-cols-12 gap-4 px-6 py-4">
     <!-- Video Section -->
-    <section id="videoSection" class="VideoLook col-span-8 bg-gray-800 rounded-lg p-16 relative shadow-lg transition-all duration-500 ease-in-out">
+    <section id="videoSection" class="VideoLook col-span-8 bg-gray-800 rounded-lg p-8 relative shadow-lg transition-all duration-500 ease-in-out">
       <div class="h-full w-full flex items-center justify-center">
         <video id="local" class="hidden w-full h-full" autoplay muted></video> <!-- Local video element -->
         <video id="remoteVideo" class="absolute right-4 bottom-4 w-1/4 h-1/4 rounded-lg" autoplay></video> <!-- Remote video element -->
         <p class="text-gray-500"></p>
-        <div class="buttons left-0 bottom-0 absolute px-48 py-1 flex items-enter justify-center gap-5">
-          <div class="w-14 h-14 rounded-full bg-zinc-500 px-4 py-3 hover:bg-gray-700">
-            <i class="ri-phone-fill text-2xl text-red-500"></i>
+        <div class="buttons left-0 bottom-0 absolute px-56 py-10 flex items-enter justify-center gap-10">
+          <div class="w-14 h-14 rounded-full bg-red-500 px-4 py-3 hover:bg-sky-700" id="hangup1">
+            <i class="ri-phone-fill text-2xl"></i>
           </div>
-          <div class="w-14 h-14 rounded-full bg-zinc-500 px-4 py-3 hover:bg-gray-700">
-          <i class="ri-video-on-fill text-2xl"></i>
-        </div>
-          <div class="w-14 h-14 rounded-full bg-zinc-500 px-4 py-3 hover:bg-gray-700">
-          <i class="ri-volume-down-fill   text-2xl"></i>    
-        </div>
+          <div class="w-14 h-14 rounded-full bg-sky-500 px-4 py-3 hover:bg-sky-700" id="cameraButton">
+            <i class="ri-video-on-fill text-2xl"></i>                 </div>
+          <div class="w-14 h-14 rounded-full bg-sky-500 px-4 py-3 hover:bg-sky-700" id="micButton">
+            <i class="ri-volume-down-fill  text-2xl"></i>            </div>
          </div>
       </div>
     </section>
@@ -244,10 +242,39 @@ var count = 0;
       }
 
     });
-  
-    
+      // Controlling the working of video on clicking on the camera button
+      document.querySelector("#cameraButton").addEventListener("click", function () {
+        const local = document.querySelector("#local");
+        const remoteVideo = document.querySelector("#remoteVideo");
+       // local.classList.add("blur-md");
+
+        if (localStream.getVideoTracks()[0].enabled) {
+          localStream.getVideoTracks()[0].enabled = false;
+          document.querySelector("#cameraButton").innerHTML = '<i class="ri-video-off-fill text-2xl"></i>';
+        } else {
+          localStream.getVideoTracks()[0].enabled = true;
+          document.querySelector("#cameraButton").innerHTML = '<i class="ri-video-on-fill text-2xl"></i>';
+        }
+    });
+          // Controlling the working of video on clicking on the camera button
+      document.querySelector("#micButton").addEventListener("click", function (){
+        const local = document.querySelector("#local");
+        const remoteVideo = document.querySelector("#remoteVideo");
+        //local.classList.add("blur-md");
+
+        if (localStream.getAudioTracks()[0].enabled) {
+          localStream.getAudioTracks()[0].enabled = false;
+          document.querySelector("#micButton").innerHTML = '<i class="ri-volume-mute-fill text-2xl"></i>';
+        } else {
+          localStream.getAudioTracks()[0].enabled = true;
+          document.querySelector("#micButton").innerHTML = '<i class="ri-volume-down-fill text-2xl"></i>';
+        }
+      });
+
+
     
 
+    
     function hangup() {
       if (peerConnection) {
         peerConnection.close();
@@ -259,6 +286,16 @@ var count = 0;
         inCall = false;
       }
     }
+
+    document.querySelector("#hangup")
+          .addEventListener("click", function () {
+              hangup();
+          })
+
+          document.querySelector("#hangup1")
+          .addEventListener("click", function () {
+              hangup();
+          })
 
     // Initialize WebRTC
     initialize();
