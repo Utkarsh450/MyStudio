@@ -18,7 +18,8 @@ router.post("/", async (req, res) => {
 
     let isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-        return res.status(401).json({ message: "Invalid credentials" });
+        return     res.redirect("/chat");
+
     }
 
     let token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
@@ -32,4 +33,4 @@ router.post("/", async (req, res) => {
 
 });
 
-module.exports = router;
+module.exports = router;

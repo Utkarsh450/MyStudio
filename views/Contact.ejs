@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us & About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <!-- About Us Section -->
+        <section class="mb-16" id="about-us">
+            <h1 class="text-4xl font-bold text-orange-500 mb-4">About Us</h1>
+            <div class="space-y-4">
+                <p class="text-lg">Welcome to MRstudio, the platform where great meetings are just the beginning. Our chat application leverages the power of WebRTC and sockets to bring seamless communication experiences to individuals and teams. Whether it's virtual meetings, casual conversations, or professional collaborations, our platform is designed to make every interaction smooth and efficient.</p>
+                <p class="text-lg">With a focus on innovative technology, MRstudio is constantly evolving to meet user needs. We pride ourselves on providing high-quality video and audio communication tools with premium features for an enhanced experience. Join our community of 20,000+ satisfied users and take your online interactions to the next level!</p>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact-us">
+            <h1 class="text-4xl font-bold text-orange-500 mb-4">Contact Us</h1>
+            <div class="space-y-4">
+                <p class="text-lg">We'd love to hear from you! If you have any questions, feedback, or need assistance, feel free to reach out to us.</p>
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full p-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full p-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="w-full p-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
+                    </div>
+
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-md">Submit</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer class="mt-16 py-4 bg-gray-800 text-center">
+        &copy; 2024 MRstudio. All rights reserved.
+    </footer>
+</body>
+</html>

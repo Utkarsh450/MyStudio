@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Subscription</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Tailwind configuration for smooth animations */
+    @layer utilities {
+      .hover-scale:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between p-6 bg-gray-900">
+    <div class="text-2xl font-bold text-orange-500">MR<span class="text-white">studio</span></div>
+    <nav class="hidden md:flex space-x-6">
+      <a href="/" class="hover:text-orange-500 transition">Home</a>
+      <a href="#" class="hover:text-orange-500 transition">About</a>
+      <a href="#" class="hover:text-orange-500 transition">Services</a>
+      <a href="#" class="hover:text-orange-500 transition">Contact</a>
+    </nav>
+    <!-- Mobile Menu Button -->
+    <button id="menu-button" class="md:hidden text-orange-500 focus:outline-none">
+      ☰
+    </button>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <nav id="mobile-menu" class="hidden bg-gray-800 p-4 space-y-4 md:hidden">
+    <a href="/" class="block text-orange-500 hover:text-white">Home</a>
+    <a href="#" class="block text-orange-500 hover:text-white">About</a>
+    <a href="#" class="block text-orange-500 hover:text-white">Services</a>
+    <a href="#" class="block text-orange-500 hover:text-white">Contact</a>
+  </nav>
+
+  <!-- Main Section -->
+  <main class="text-center py-16">
+    <h1 class="text-4xl font-bold mb-4 text-orange-500 hover-scale">Take Your Meetings to the Next Level</h1>
+    <p class="text-lg mb-8">Start your journey today with a <span class="text-orange-500">free trial</span> or a <span class="text-orange-500">premium subscription</span>!</p>
+    
+    <div class="flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-8">
+      <!-- Free Trial -->
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 w-80 hover-scale">
+        <h2 class="text-2xl font-bold text-orange-500">Free Trial</h2>
+        <p class="text-sm text-gray-400 mt-2">7 days free, no credit card required</p>
+        <ul class="text-left mt-4 space-y-2">
+          <li>✅ Unlimited meeting time</li>
+          <li>✅ Basic analytics</li>
+          <li>✅ Email support</li>
+        </ul>
+        <button class="bg-orange-500 hover:bg-orange-600 transition text-white mt-6 py-2 px-4 rounded-lg w-full">
+          Start Free Trial
+        </button>
+      </div>
+
+      <!-- Premium Subscription -->
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 w-80 hover-scale">
+        <h2 class="text-2xl font-bold text-orange-500">Premium</h2>
+        <p class="text-sm text-gray-400 mt-2">$19.99/month</p>
+        <ul class="text-left mt-4 space-y-2">
+          <li>✅ Unlimited meeting time</li>
+          <li>✅ Advanced analytics</li>
+          <li>✅ Priority support</li>
+          <li>✅ Access to all features</li>
+        </ul>
+        <button class="bg-orange-500 hover:bg-orange-600 transition text-white mt-6 py-2 px-4 rounded-lg w-full">
+          Upgrade to Premium
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-gray-800 text-center">
+    <p class="text-gray-400">© 2024 MRstudio. All rights reserved.</p>
+    <div class="flex justify-center mt-4 space-x-6">
+      <a href="#" class="text-gray-400 hover:text-orange-500 transition">Facebook</a>
+      <a href="#" class="text-gray-400 hover:text-orange-500 transition">Twitter</a>
+      <a href="#" class="text-gray-400 hover:text-orange-500 transition">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

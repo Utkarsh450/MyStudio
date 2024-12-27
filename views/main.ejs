@@ -8,181 +8,153 @@
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
-/>
+    />
     <style>
-        /* Add glowing effects */  
-  .glowing-box {
-    box-shadow: 0 0 3px #ff8c00, 0 0 5px #ff4500, 0 0 10px #ff4500;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .glowing-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #ff4500, 0 0 40px #ff6347, 0 0 60px #ff6347;
-  }
-  body{
-    background-color: #121212;
-  }
-  
+        /* Add glowing effects */
+        .glowing-box {
+            box-shadow: 0 0 3px #ff8c00, 0 0 5px #ff4500, 0 0 10px #ff4500;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .glowing-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff4500, 0 0 40px #ff6347, 0 0 60px #ff6347;
+        }
+        body {
+            background-color: #121212;
+        }
     </style>
 </head>
 <body>
     <div class="main w-full min-h-screen font-['Plsm xtrBld xtndd']">
-        <nav class="flex px-24 py-10">
-            <div class="flex gap-44">
-            <div class="mrstudio flex">
+        <nav class="flex flex-wrap justify-between items-center px-6 py-6 sm:px-12 md:px-24 lg:px-24">
+            <div class="flex items-center gap-2">
                 <h1 class="text-2xl text-[#FF6F3F] font-semibold">MR</h1>
                 <h1 class="text-xl text-white font-semibold">studio</h1>
-
-        </div>
-        <div class="flex gap-10">
-            <h1 class="text-sm font-regular text-white font-extralight">Home</h1>
-            <h1 class="text-sm font-regular text-white font-extralight">About</h1>
-            <h1 class="text-sm font-regular text-white font-extralight">Services</h1>
-            <h1 class="text-sm font-regular text-white font-extralight">Contact</h1>
-
-        </div>
-        <div class="flex gap-14 ml-36">
-            <a class="font-semibold text-[#FF6F3F] mt-3 glowing-text" href="/login">Login</a>
-            <div class="bg-orange-500 px-3 py-2 rounded w-24 glowing-box">
-            <a href="/login" class="font-semibold text-white" href="">Sign up</a>
-        </div>
-    </div>
-
-
-        </div></nav>
-        <div class="flex justify-between relative">
-            <div>
-        <div class="center px-24 py-16 flex flex-col gap-5 mb-[-6.5rem]">
-            <div class="flex gap-2">
-            <h1 class="text-[#FF6F3F] font-semibold text-5xl">Great Meetings</h1>
-            <span class="text-white font-semibold text-5xl ">Are</span>
-        </div>
-            <h1 class="text-white font-semibold text-5xl">Just The Beginning</h1>
-            <div class="flex gap-10">
-                <div class="rounded-full mt-5 border-2 w-24 h-24 flex-wrap flex flex-col items-center justify-center opacity-65">
-                    <h1 class="text-[#FF6F3F] text-2xl">20K</h1>
-                    <h1 class="text-[#FF6F3F]">user</h1>
+            </div>
+            <div class="flex gap-5 sm:gap-10 hidden md:flex">
+                <a href="/" class="text-sm text-white font-extralight">Home</a>
+                <a href="/chat" class="text-sm text-white font-extralight">Chat</a>
+                <a href="/" class="text-sm text-white font-extralight">Services</a>
+                <a href="/contact" class="text-sm text-white font-extralight">Contact</a>
+            </div>
+            <div class="flex gap-6 ml-10 sm:ml-16 items-center">
+                <a class="font-semibold text-[#FF6F3F] mt-3 glowing-text" href="/login">Login</a>
+                <div class="bg-orange-500 px-3 py-2 rounded w-24 glowing-box">
+                    <a href="/login" class="font-semibold text-white">Sign up</a>
                 </div>
-                <div class="w-[1px] h-24 bg-white mt-5 opacity-65"></div>
-                <div class="flex gap-2 flex-col mt-10">
+            </div>
+            <div class="md:hidden flex gap-5">
+                <button class="text-white">
+                    <i class="ri-menu-4-line text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div class="flex flex-wrap justify-between relative px-6 sm:px-12 lg:px-24">
+            <div class="w-full lg:w-1/2">
+                <div class="center px-3 py-8 sm:px-12 sm:py-20 md:px-10 md:py-24 flex flex-col gap-5 mb-[-6.5rem]">
                     <div class="flex gap-2">
-                    <i class="ri-star-fill text-yellow-500"></i>
-                    <h1 class="font-semibold text-white text-xl">4.9</h1>
-                    <h1 class="text-white text-sm py-1">Rating</h1>
+                        <h1 class="text-[#FF6F3F] font-semibold text-xl sm:text-5xl">Great</h1>
+                        <h1 class="text-[#FF6F3F] font-semibold text-xl sm:text-5xl">Meetings</h1>
+                    </div>
+                    <span class="text-white font-semibold text-3xl sm:text-5xl">Are</span>
+                    <h1 class="text-white font-semibold text-3xl sm:text-5xl">Just The Beginning</h1>
+                    <div class="flex gap-10">
+                        <div class="rounded-full mt-5 border-2 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center opacity-65">
+                            <h1 class="text-[#FF6F3F] text-xl sm:text-2xl">20K</h1>
+                            <h1 class="text-[#FF6F3F] text-sm sm:text-base">user</h1>
+                        </div>
+                        <div class="w-[1px] h-20 sm:h-24 bg-white mt-5 opacity-65"></div>
+                        <div class="flex gap-2 flex-col mt-10">
+                            <div class="flex gap-2">
+                                <i class="ri-star-fill text-yellow-500"></i>
+                                <h1 class="font-semibold text-white text-lg sm:text-xl">4.9</h1>
+                                <h1 class="text-white text-sm py-1">Rating</h1>
+                            </div>
+                            <div>
+                                <h1 class="font-semibold text-sm px-1 text-[#FF6F3F]">Last Updated on June 2024</h1>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="font-semibold text-sm px-1 text-[#FF6F3F]">Last Updated on June 2024</h1>
-                </div>
-                </div>
-            </div>
-        </div>
-        <div class="px-24 py-16">
-            <h1 class="text-[#FF6F3F] font-semibold text-2xl">Make Your Meet</h1>
-            <div class="flex gap-5 mt-5">
-                <div class="px-2 py-3 bg-[#FF6F3F] w-fit rounded">
-                    <h1 class="text-white font-semibold">Free Trial</h1>
-                </div>
-                <div class="px-2 py-3 w-fit rounded border border-white">
-                    <h1 class="text-white font-semibold">Upgrade to Premium</h1>
+                <div class="px-6 py-16 sm:px-12 sm:py-20 md:px-24 md:py-24">
+                    <h1 class="text-[#FF6F3F] font-semibold text-2xl sm:text-3xl">Make Your Meet</h1>
+                    <div class="flex gap-5 mt-5 flex-wrap">
+                        <div class="px-2 py-3 bg-[#FF6F3F] w-fit rounded mb-4 sm:mb-0">
+                            <a href="/trial" class="text-white font-semibold">Free Trial</a>
+                        </div>
+                        <div class="px-2 py-3 w-fit rounded border border-white mb-4 sm:mb-0">
+                            <a href="/trial" class="text-white font-semibold">Upgrade to Premium</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="w-96 h-96 bg-yellow-500 absolute left-[43rem] top-[2rem]">
-        <video autoplay loop muted class="w-full h-full object-cover" src="https://cdn.dribbble.com/userupload/17773305/file/original-d7186ef47b3f3103e5200daba3ddf297.mp4"></video>
-    </div>
-    </div>
-
-    <footer class="bg-gradient-to-r from-[#121212] to-[#1f1f1f] text-white py-10 px-6 md:px-24">
-        <!-- Fade-in Animation -->
-        <div class="container mx-auto flex flex-wrap justify-between items-center gap-10 animate_animated animate_fadeIn">
-            
-            <!-- Left Section: About Us -->
-            <div class="w-full md:w-1/4 mb-10 md:mb-0">
-                <h2 class="text-xl font-bold text-[#FF6F3F] mb-3">About Us</h2>
-                <p class="text-sm text-gray-300 mt-3 leading-relaxed tracking-wide">
-                    At MR Studio, we craft seamless meeting experiences powered by cutting-edge technology and intuitive design, making every interaction meaningful and impactful.
-                </p>
-            </div>
-    
-            <!-- Middle Section: Quick Links -->
-            <div class="w-full md:w-1/4 text-center mb-10 md:mb-0">
-                <h2 class="text-xl font-bold text-[#FF6F3F] mb-3">Quick Links</h2>
-                <ul class="mt-3 space-y-3 text-gray-300">
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Home</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">About</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Services</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Contact</a></li>
-                </ul>
-            </div>
-    
-            <!-- Right Section: Newsletter -->
-            <div class="w-full md:w-1/4 text-center md:text-right mb-10 md:mb-0">
-                <h2 class="text-xl font-bold text-[#FF6F3F] mb-3">Stay Updated</h2>
-                <p class="text-sm text-gray-300 mt-3">
-                    Subscribe to our newsletter for the latest updates and insights.
-                </p>
-                <form class="mt-5 flex justify-center md:justify-end">
-                    <input
-                        type="email"
-                        placeholder="Enter your email"
-                        class="px-4 py-2 rounded-l bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF6F3F] transition-all shadow-md"
-                    />
-                    <button
-                        type="submit"
-                        class="px-6 py-2 bg-[#FF6F3F] text-white rounded-r hover:bg-[#FF4500] transition-all transform hover:scale-105 shadow-lg"
-                    >
-                        Subscribe
-                    </button>
-                </form>
-            </div>
-        </div>
-    
-        <!-- New Section: Services or Features -->
-        <div class="mt-10 md:flex md:justify-between text-center md:text-left">
-            <div class="w-full md:w-1/4 mb-10 md:mb-0">
-                <h3 class="text-lg font-bold text-[#FF6F3F] mb-3">Our Services</h3>
-                <ul class="space-y-2 text-gray-300">
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Web Design</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Consulting</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Development</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Marketing</a></li>
-                </ul>
-            </div>
-            
-            <!-- New Section: Privacy and Terms -->
-            <div class="w-full md:w-1/4 mb-10 md:mb-0">
-                <h3 class="text-lg font-bold text-[#FF6F3F] mb-3">Legal</h3>
-                <ul class="space-y-2 text-gray-300">
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Terms of Service</a></li>
-                </ul>
+            <div class="w-full lg:w-1/2 h-full relative">
+                <video autoplay loop muted class="w-full h-full object-cover" src="https://cdn.dribbble.com/userupload/17773305/file/original-d7186ef47b3f3103e5200daba3ddf297.mp4"></video>
             </div>
         </div>
 
-        
-    
-        <!-- Bottom Section: Contact Info, Social Media, and Legal -->
-        <div class="mt-10 border-t border-gray-700 pt-5 text-center">
-            <div class="flex justify-center space-x-8 text-gray-400 mb-5">
-                <a href="tel:+1234567890" class="hover:text-[#FF6F3F] hover:scale-110 transition-all duration-300">Call Us: +1 234 567 890</a>
-                <a href="mailto:contact@mystudio.com" class="hover:text-[#FF6F3F] hover:scale-110 transition-all duration-300">Email: contact@mystudio.com</a>
+        <footer class="bg-gradient-to-r from-[#121212] to-[#1f1f1f] text-white py-10 px-6 md:px-24">
+            <div class="container mx-auto flex flex-wrap justify-between items-center gap-10 animate_animated animate_fadeIn">
+                <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                    <h2 class="text-xl font-bold text-[#FF6F3F] mb-3">About Us</h2>
+                    <p class="text-sm text-gray-300 mt-3 leading-relaxed tracking-wide">
+                        At MR Studio, we craft seamless meeting experiences powered by cutting-edge technology and intuitive design, making every interaction meaningful and impactful.
+                    </p>
+                </div>
+
+                <div class="w-full md:w-1/4 text-center mb-10 md:mb-0">
+                    <h2 class="text-xl font-bold text-[#FF6F3F] mb-3">Quick Links</h2>
+                    <ul class="mt-3 space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Home</a></li>
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">About</a></li>
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Services</a></li>
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/4 text-center md:text-right mb-10 md:mb-0">
+                    <h2 class="text-xl font-bold text-[#FF6F3F] mb-3">Stay Updated</h2>
+                    <p class="text-sm text-gray-300 mt-3">
+                        Subscribe to our newsletter for the latest updates and insights.
+                    </p>
+                    <form class="mt-5 flex justify-center md:justify-end">
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            class="px-4 py-2 rounded-l bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF6F3F] transition-all shadow-md"
+                        />
+                        <button
+                            type="submit"
+                            class="px-6 py-2 bg-[#FF6F3F] text-white rounded-r hover:bg-[#FF4500] transition-all transform hover:scale-105 shadow-lg"
+                        >
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div class="flex justify-center space-x-6 mb-5">
-                <a href="#" class="text-gray-400 hover:text-[#FF6F3F] hover:scale-110 transition-all duration-300">
-                    <i class="fab fa-facebook text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-[#FF6F3F] hover:scale-110 transition-all duration-300">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-[#FF6F3F] hover:scale-110 transition-all duration-300">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
+
+            <div class="mt-10 md:flex md:justify-between text-center md:text-left">
+                <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                    <h3 class="text-lg font-bold text-[#FF6F3F] mb-3">Our Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Web Design</a></li>
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Consulting</a></li>
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Development</a></li>
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                    <h3 class="text-lg font-bold text-[#FF6F3F] mb-3">Legal</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-[#FF6F3F] hover:scale-105 transition-all duration-300">Terms of Service</a></li>
+                    </ul>
+                </div>
             </div>
-            <p class="mt-5 text-sm text-gray-500">&copy; 2024 MR Studio. All rights reserved.</p>
-        </div>
-    </footer>
-    
+        </footer>
+    </div>
 </body>
 </html>

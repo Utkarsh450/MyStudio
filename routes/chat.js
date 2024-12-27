@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const {protect} = require("../middlewares/user");
 
-router.get("/",(req,res)=>{
+router.get("/",protect,(req,res)=>{
     res.render('chat');
 })
 

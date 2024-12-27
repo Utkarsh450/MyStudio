@@ -13,6 +13,8 @@ const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
 const mainRouter = require("./routes/main");
 const chatRouter = require("./routes/chat");
+const contactRouter = require("./routes/Contact");
+const trialRouter = require("./routes/trial");
 const db = require("./config/mongoose");
 
 app.set("view engine","ejs");
@@ -52,6 +54,8 @@ io.on("connection",function(socket){
 app.use("/login",loginRouter);
 app.use("/",mainRouter);
 app.use("/chat",chatRouter);
+app.use("/trial",trialRouter);
+app.use("/contact",contactRouter);
 app.use("/register",registerRouter);
 
 server.listen(3004);
